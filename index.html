@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anemo — Usina Eólica Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">💨 Anemo</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="sobre.html">Sobre o Projeto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Anemo — Usina Eólica Inteligente e Sustentável</h1>
+    <p>Solução inovadora de microgeração eólica com simulador interativo de energia e painel de monitoramento.</p>
+  </section>
+
+  <main class="container">
+    
+    <!-- Apresentação e Problema -->
+    <div class="grid">
+      <div class="card">
+        <h3>4. Apresentação</h3>
+        <p>O <strong>Anemo</strong> é um projeto de usina eólica inteligente que une microgeração e monitoramento digital para fornecer energia limpa e de baixo custo a comunidades e pequenas empresas.</p>
+      </div>
+
+      <div class="card">
+        <h3>5. Problema</h3>
+        <p>Alta dependência de fontes poluentes, faturas elétricas elevadas e instabilidade de fornecimento para produtores rurais e comércios locais.</p>
+      </div>
+    </div>
+
+    <!-- FERRAMENTA INTERATIVA: Simulador de Geração Eólica -->
+    <section class="interactive-section">
+      <h2>⚡ Simulador de Geração de Energia (Ferramenta Ativa)</h2>
+      <p>Arraste o cursor para simular a velocidade média do vento na região e veja a estimativa de energia gerada pela Usina Anemo:</p>
+      
+      <div class="simulador-box">
+        <label for="ventoRange">Velocidade do Vento: <span id="ventoValor">10</span> m/s</label>
+        <input type="range" id="ventoRange" min="2" max="25" value="10" step="1">
+        
+        <div class="resultado-simulacao">
+          <p>🔋 Energia Estimada Gerada: <strong id="energiaGerada">150</strong> kWh/mês</p>
+          <p>💡 Economia Financeira Média: <strong id="economiaEstimada">R$ 135,00</strong>/mês</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objetivos e Resultados -->
+    <div class="grid" style="margin-top: 2rem;">
+      <div class="card">
+        <h3>6. Objetivo & 7. Justificativa</h3>
+        <p>Desenvolver um protótipo viável e sustentável para democratizar o acesso à energia limpa e reduzir custos operacionais com autonomia energética.</p>
+      </div>
+
+      <div class="card">
+        <h3>9. Resultados Alcançados</h3>
+        <p>Prototipagem concluída com sucesso do circuito gerador e validação de estabilidade estrutural através de testes em campo.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Anemo — Usina Eólica Inteligente | Orientação: Prof. Adalberto Santana</p>
+  </footer>
+
+  <!-- Script do Simulador -->
+  <script>
+    const ventoRange = document.getElementById('ventoRange');
+    const ventoValor = document.getElementById('ventoValor');
+    const energiaGerada = document.getElementById('energiaGerada');
+    const economiaEstimada = document.getElementById('economiaEstimada');
+
+    ventoRange.addEventListener('input', function() {
+      const velocidade = parseInt(this.value);
+      ventoValor.textContent = velocidade;
+      const energia = Math.round(velocidade * velocidade * 1.5);
+      const economia = (energia * 0.90).toFixed(2);
+      energiaGerada.textContent = energia;
+      economiaEstimada.textContent = `R$ ${economia.replace('.', ',')}`;
+    });
+  </script>
+
+</body>
+</html>
